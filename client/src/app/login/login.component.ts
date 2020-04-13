@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService as LoginService } from './login-service.service';
 import { User } from './../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   public user: User;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
     this.user = new User();
   }
 
@@ -22,6 +23,11 @@ export class LoginComponent implements OnInit {
       console.log('password: ', this.user.password);
       this.loginService.validateLogin(this.user).subscribe(result => {
         console.log('Result: ', result);
+        if (result['status'] === 'success') {
+          this.router.navigate(['/home']);
+        } else {
+          console.log('Wrong username or password');
+        }
       }, error => {
         console.log('Error: ', error);
       });
