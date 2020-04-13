@@ -9,7 +9,7 @@ export class LoginServiceService {
 
   validateLogin(user: User) {
     console.log('service - username: ', user.username, 'password: ', user.password);
-    return this.httpClient.post('/api/user/login', {
+    return this.httpClient.post('http://localhost:4000/api/user/login', {
       username: user.username,
       password: user.password
     });
