@@ -8,6 +8,7 @@ export class LoginServiceService {
   constructor(private httpClient: HttpClient) { }
 
   validateLogin(user: User) {
+    console.log('service - username: ', user.username, 'password: ', user.password);
     return this.httpClient.post('/api/user/login', {
       username: user.username,
       password: user.password
