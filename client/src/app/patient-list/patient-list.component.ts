@@ -14,13 +14,13 @@ export class PatientListComponent implements OnInit {
   constructor(private patientListService: PatientListService) { }
 
   ngOnInit() {
-    console.log('paciensek: ', this.patients);
     this.getAllPatients();
   }
 
   getAllPatients() {
     this.patientListService.getAllPatients().subscribe(result => {
-      this.patients = result['data'];
+      const key = 'data';
+      this.patients = result[key];
     });
   }
 
