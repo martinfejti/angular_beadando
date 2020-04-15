@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const User = require("./model/user");
+const Patient = require("./model/patient");
 const url = "mongodb://localhost/angular_database";
 const app = express();
 
@@ -33,6 +34,19 @@ app.post("/api/user/login", (req, res) => {
         });
         console.log("Successful connection with username: ", req.body.username, ' password: ', req.body.password);
     });
+})
+
+app.post('/api/patient/getAllPatients', (req, res) => {
+    mongoose.connect(url, {useMongoClient: true}, function(err) {
+        if (err) throw err;
+        Patient.find({}, [], {sort: {_id: -1}}, (err, doc) => {
+            if (err) throw err;
+            return res.status(200).json({
+                status: 'success',
+                data: doc
+            })
+        })
+    })
 })
 
 app.get('/api/user/login', (req, res) => {
