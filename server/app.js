@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.post("/api/user/login", (req, res) => {
-    mongoose.connect(url, {useMongoClient: true}, function(err) {
+    mongoose.connect(url, function(err) {
         if (err) throw err;
         console.log('username:: ', req.body.username, 'password:: ', req.body.password);
         User.find({
@@ -37,9 +37,10 @@ app.post("/api/user/login", (req, res) => {
 })
 
 app.post('/api/patient/getAllPatients', (req, res) => {
-    mongoose.connect(url, {useMongoClient: true}, function(err) {
+    mongoose.connect(url, function(err) {
         if (err) throw err;
-        Patient.find({}, [], {sort: {_id: -1}}, (err, doc) => {
+        Patient.find({}, function(err, doc){
+            console.log('patientList backend: ', doc);
             if (err) throw err;
             return res.status(200).json({
                 status: 'success',

@@ -14,6 +14,7 @@ export class PatientListComponent implements OnInit {
   constructor(private patientListService: PatientListService) { }
 
   ngOnInit() {
+    console.log('paciensek: ', this.patients);
     this.getAllPatients();
   }
 
