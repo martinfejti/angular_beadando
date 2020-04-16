@@ -50,6 +50,25 @@ app.post('/api/patient/getAllPatients', (req, res) => {
     })
 })
 
+app.post('/api/patient/createPatient', (req, res) => {
+    mongoose.connect(url, function(err) {
+        if (err) throw err;
+        const patient = new Patient({
+            name: req.body.name,
+            birthDate: req.body.birthdate,
+            tAJNumber: req.body.tAJNumber,
+            caseHistory: req.body.caseHistory
+        })
+        patient.save((err, doc) => {
+            if (err) throw err;
+            return res.status(200).json({
+                status: 'status',
+                data: doc
+            })
+        })
+    })
+})
+
 app.get('/api/user/login', (req, res) => {
     res.send('Henlo World');
 })
