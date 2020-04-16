@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Patient } from './../models/patient.model';
 import { Disease } from './../models/disease.model';
 import { AddPatientService } from './add-patient.service';
+import { CommonService } from './../service/common.service';
 
 @Component({
   selector: 'app-add-patient',
@@ -17,7 +18,7 @@ export class AddPatientComponent implements OnInit {
   tempPrescribedMedicines: string;
   tempTreatmentList: string;
 
-  constructor(private addPatientService: AddPatientService) {
+  constructor(private addPatientService: AddPatientService, private commonService: CommonService) {
     this.patient = new Patient();
     this.disease = new Disease();
   }
@@ -34,6 +35,7 @@ export class AddPatientComponent implements OnInit {
     if (this.patient.name && this.patient.birthdate && this.patient.tAJNumber) {
       this.addPatientService.addPatient(this.patient).subscribe(result => {
         this.closeBtn.nativeElement.click();
+        this.commonService.notifyPatientCreation();
       });
     } else {
       alert('A név, születési dátum és TAJ szám mezők kitöltése kötelező!');
