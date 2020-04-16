@@ -1,8 +1,8 @@
 export class Disease {
     constructor() {
         this.diagnosis = '';
-        this.diagnosis = null;
-        this.prescribedMedicines = null;
+        this.prescribedMedicines = [];
+        this.treatmentList = [];
     }
 
     public diagnosis: string;

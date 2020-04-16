@@ -13,32 +13,32 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Név</label>
-                        <input name="name" type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Írja be a nevet">
+                        <input [(ngModel)]="patient.name" name="patientName" type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Írja be a nevet">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Születési Dátum</label>
-                        <input type="date" name="birthdate" class="form-control" id="inputBirthdate">
+                        <input [(ngModel)]="patient.birthdate" type="date" name="birthdate" class="form-control" id="inputBirthdate">
                     </div>
                     <div class="form-group">
                             <label for="inputTAJNumber">TAJ Szám</label>
-                            <input type="number" name="tAJNumber" class="form-control" id="inputTAJNumber" placeholder="Írja be a TAJ számot">
+                            <input [(ngModel)]="patient.tAJNumber" type="number" name="tAJNumber" class="form-control" id="inputTAJNumber" placeholder="Írja be a TAJ számot">
                     </div>
                     <div class="form-group">
                         <label for="inputDiagnosis">Diagnózis</label>
-                        <input type="text" name="diagnosis" class="form-control" id="inputDiagnosis" placeholder="Írja be a diagnózist">
+                        <input [(ngModel)]="disease.diagnosis" type="text" name="diagnosis" class="form-control" id="inputDiagnosis" placeholder="Írja be a diagnózist">
                     </div>
                     <div class="form-group">
                         <label for="inputPrescribedMedicines">Felírt gyógyszerek</label>
-                        <textarea name="prescribedMedicines" class="form-control" id="inputPrescribedMedicines" placeholder="Gyógyszer1; Gyógyszer2 ..."></textarea>
+                        <textarea [(ngModel)]="tempPrescribedMedicines" name="prescribedMedicines" class="form-control" id="inputPrescribedMedicines" placeholder="Gyógyszer1; Gyógyszer2 ..."></textarea>
                     </div>
                     <div class="form-group">
                         <label for="inputTreatmentList">Felírt kezelések</label>
-                        <textarea name="treatmentList" class="form-control" id="inputTreatmentList" placeholder="Kezelés1; Kezelés2 ..."></textarea>
+                        <textarea [(ngModel)]="tempTreatmentList" name="treatmentList" class="form-control" id="inputTreatmentList" placeholder="Kezelés1; Kezelés2 ..."></textarea>
                     </div>
     
                     
     
-                    <button type="button" class="btn btn-primary">Hozzáad</button>
+                    <button type="button" (click) = "addPatient()" class="btn btn-primary">Hozzáad</button>
                 </form>
     
     
