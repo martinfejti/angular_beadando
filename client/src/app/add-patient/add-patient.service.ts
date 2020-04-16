@@ -8,7 +8,7 @@ export class AddPatientService {
   constructor(private httpClient: HttpClient) { }
 
   addPatient(patient: Patient) {
-    return this.httpClient.post('/api/patient/createPatient', {
+    return this.httpClient.post('http://localhost:4000/api/patient/createPatient', {
       name: patient.name,
       birthdate: patient.birthdate,
       tAJNumber: patient.tAJNumber,
