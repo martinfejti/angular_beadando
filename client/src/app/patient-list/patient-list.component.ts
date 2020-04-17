@@ -29,4 +29,7 @@ export class PatientListComponent implements OnInit {
     });
   }
 
+  preventReload(event: Event) {
+    event.preventDefault();
+  }
 }
