@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { PatientListElementComponent } from './patient-list-element/patient-list-element.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     HomeComponent,
     PatientListComponent,
     AddPatientComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    PatientListElementComponent
   ],
   imports: [
     BrowserModule,
