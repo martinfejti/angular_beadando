@@ -1,3 +1,24 @@
 <ng-container *ngIf="toggleDetails">
-    {{patient.birthDate}}
+    <div [ngClass] = "'detail-div'">
+        <h6>Birthdate:</h6>
+        <p>{{patient.birthDate | date: 'yyyy-MM-dd'}}</p>
+    </div>
+    <div [ngClass] = "'detail-div'">
+        <h6>TAJ szám:</h6>
+        <p>{{patient.tAJNumber}}</p>
+    </div>
+    <div id="history-div">
+        <h5>Kórtörténet:</h5>
+        <h6>Betegségek:</h6>
+        <ng-container *ngFor="let case of patient.caseHistory">
+            {{case.diagnosis}}
+            <ng-container *ngFor="let medicine of case.prescribedMedicines">
+                {{medicine}}
+            </ng-container>
+            <ng-container *ngFor="let treatment of case.treatmentList">
+                {{treatment}}
+            </ng-container>
+        </ng-container>
+        
+    </div>
 </ng-container>

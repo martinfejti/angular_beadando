@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientListService } from './patient-list.service';
 import { CommonService } from './../service/common.service';
+import { Patient } from './../models/patient.model';
 
 @Component({
   selector: 'app-patient-list',
@@ -10,7 +11,7 @@ import { CommonService } from './../service/common.service';
 })
 export class PatientListComponent implements OnInit {
 
-  public patients: any[];
+  public patients: Patient[];
 
   constructor(private patientListService: PatientListService, private commonService: CommonService) {}
 
@@ -26,6 +27,7 @@ export class PatientListComponent implements OnInit {
     this.patientListService.getAllPatients().subscribe(result => {
       const key = 'data';
       this.patients = result[key];
+      console.log('PATIENTS ', this.patients);
     });
   }
 
