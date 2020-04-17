@@ -1,0 +1,10 @@
+.icons {
+    width: 30px;
+    height: 30px;
+}
+
+#icons-container {
+    float: right;
+    top: 0;
+    display: block;
+}
