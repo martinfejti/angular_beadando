@@ -11,8 +11,11 @@ import { CommonService } from './../service/common.service';
 export class PatientListComponent implements OnInit {
 
   public patients: any[];
+  private toggleDetails: boolean;
 
-  constructor(private patientListService: PatientListService, private commonService: CommonService) { }
+  constructor(private patientListService: PatientListService, private commonService: CommonService) {
+    this.toggleDetails = false;
+  }
 
   ngOnInit() {
     this.getAllPatients();
@@ -27,6 +30,10 @@ export class PatientListComponent implements OnInit {
       const key = 'data';
       this.patients = result[key];
     });
+  }
+
+  showDetails() {
+    this.toggleDetails = !this.toggleDetails;
   }
 
   preventReload(event: Event) {
