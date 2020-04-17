@@ -3,10 +3,11 @@
         <a *ngFor="let patient of patients" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{patient.name}}</h5>
-            </div>
-            <div id="icons-container">
-                <button type="button" class="btn">Szerkesztés</button>
-                <button type="button" class="btn">Törlés</button>
+                <div class="btn-group" id="icons-container">
+                    <button type="button" class="btn btn-primary">Részletek</button>
+                    <button type="button" class="btn btn-primary">Szerkesztés</button>
+                    <button type="button" class="btn btn-primary">Törlés</button>
+                </div>
             </div>
         </a>
     </div>
