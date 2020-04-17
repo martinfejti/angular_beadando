@@ -4,5 +4,10 @@
 }
 
 #history-div {
-    width: 80%;
+    width: 100%;
+}
+
+.history-detail-div {
+    width: 33%;
+    float: left;
 }
