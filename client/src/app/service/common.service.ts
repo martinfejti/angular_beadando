@@ -10,6 +10,13 @@ export class CommonService {
 
   constructor() { }
 
+  getArrayElementsFromString = (source: string): string[] => {
+    const sourceString = source;
+    const finalArray: string[] = sourceString.split(';');
+
+    return finalArray;
+  }
+
   notifyPatientCreation() {
     this.patientAddedObservable.next();
   }

@@ -27,8 +27,8 @@ export class AddPatientComponent implements OnInit {
   }
 
   addPatient() {
-    this.disease.prescribedMedicines = this.getArrayElementsFromString(this.tempPrescribedMedicines);
-    this.disease.treatmentList = this.getArrayElementsFromString(this.tempTreatmentList);
+    this.disease.prescribedMedicines = this.commonService.getArrayElementsFromString(this.tempPrescribedMedicines);
+    this.disease.treatmentList = this.commonService.getArrayElementsFromString(this.tempTreatmentList);
     this.patient.caseHistory.push(this.disease);
     console.log('created patient: ', this.patient);
 
@@ -40,13 +40,6 @@ export class AddPatientComponent implements OnInit {
     } else {
       alert('A név, születési dátum és TAJ szám mezők kitöltése kötelező!');
     }
-  }
-
-  getArrayElementsFromString = (source: string): string[] => {
-    const sourceString = source;
-    const finalArray: string[] = sourceString.split(';');
-
-    return finalArray;
   }
 
 }
