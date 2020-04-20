@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Patient } from './../models/patient.model';
+import { Disease } from './../models/disease.model';
+import { CommonService } from './../service/common.service';
 
 @Component({
   selector: 'app-edit-patient',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPatientComponent implements OnInit {
 
-  constructor() { }
+  patient: Patient;
+  diesase: Disease;
+
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+    this.commonService.patientEditedObeservable.subscribe(result => {
+      this.patient = this.commonService.patientToBeEdited;
+    });
   }
 
 }

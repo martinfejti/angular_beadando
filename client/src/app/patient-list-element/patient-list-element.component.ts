@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Patient } from './../models/patient.model';
+import { CommonService } from './../service/common.service';
 
 @Component({
   selector: 'app-patient-list-element',
@@ -10,7 +12,7 @@ export class PatientListElementComponent implements OnInit {
   @Input() patient;
   toggleDetails: boolean;
 
-  constructor() {
+  constructor(private commonService: CommonService) {
     this.toggleDetails = false;
   }
 
@@ -19,5 +21,9 @@ export class PatientListElementComponent implements OnInit {
 
   showDetails() {
     this.toggleDetails = !this.toggleDetails;
+  }
+
+  editPatient(patient: Patient) {
+    this.commonService.setPatientToEdit(patient);
   }
 }

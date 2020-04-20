@@ -1,1 +1,36 @@
-<p>edit-patient works!</p>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{patient.name}} Beteg adatainak szerkesztése</h5>
+                <button type="button" #closeBtn class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+    
+    
+                <form>
+                    <div class="form-group">
+                        <label for="inputDiagnosis">Diagnózis</label>
+                        <input type="text" name="diagnosis" class="form-control" id="inputDiagnosis" placeholder="Írja be a diagnózist">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPrescribedMedicines">Felírt gyógyszerek</label>
+                        <textarea name="prescribedMedicines" class="form-control" id="inputPrescribedMedicines" placeholder="Gyógyszer1; Gyógyszer2 ..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTreatmentList">Felírt kezelések</label>
+                        <textarea name="treatmentList" class="form-control" id="inputTreatmentList" placeholder="Kezelés1; Kezelés2 ..."></textarea>
+                    </div>
+    
+                    
+    
+                    <button type="button" (click) = "editPatient()" class="btn btn-primary">Szerkeszt</button>
+                </form>
+    
+    
+            </div>
+        </div>
+    </div>
+</div>
