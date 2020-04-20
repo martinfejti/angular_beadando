@@ -13,7 +13,9 @@ export class EditPatientComponent implements OnInit {
   patient: Patient;
   diesase: Disease;
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService) {
+    this.patient = new Patient();
+  }
 
   ngOnInit() {
     this.commonService.patientEditedObeservable.subscribe(result => {
