@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Disease } from './../models/disease.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EditPatientService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  editPatient(name: string, disease: Disease) {
+    console.log('name: ', name);
+    console.log('disease in service: ', disease);
+    return this.httpClient.put('http://localhost:4000/api/patient/editPatient', {
+      name: name,
+      diagnosis: disease.diagnosis,
+      prescribedMedicines: disease.prescribedMedicines,
+      treatmentList: disease.treatmentList
+    });
+  }
 }
