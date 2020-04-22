@@ -36,6 +36,8 @@ export class EditPatientComponent implements OnInit {
     this.editPatientService.editPatient(this.patient.name, this.disease).subscribe(result => {
       console.log('update result: ', result);
       this.closeButton.nativeElement.click();
+      this.commonService.notifyPatientEdition();
+      this.disease = new Disease();
     });
   }
 
