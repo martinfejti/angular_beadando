@@ -32,7 +32,9 @@ export class EditPatientComponent implements OnInit {
     this.disease.prescribedMedicines = this.commonService.getArrayElementsFromString(this.tempPrescribedMedicines);
     this.disease.treatmentList = this.commonService.getArrayElementsFromString(this.tempTreatmentList);
     console.log('disease to update: ', this.disease);
-    this.editPatientService.editPatient(this.patient.name, this.disease);
+    this.editPatientService.editPatient(this.patient.name, this.disease).subscribe(result => {
+      console.log('update result: ', result);
+    });
   }
 
 }

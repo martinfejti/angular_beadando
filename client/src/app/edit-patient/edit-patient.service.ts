@@ -10,8 +10,8 @@ export class EditPatientService {
   editPatient(name: string, disease: Disease) {
     console.log('name: ', name);
     console.log('disease in service: ', disease);
-    return this.httpClient.put('http://localhost:4000/api/patient/editPatient', {
-      name: name,
+    return this.httpClient.post('http://localhost:4000/api/patient/editPatient', {
+      patientName: name,
       diagnosis: disease.diagnosis,
       prescribedMedicines: disease.prescribedMedicines,
       treatmentList: disease.treatmentList
