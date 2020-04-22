@@ -33,11 +33,16 @@ export class EditPatientComponent implements OnInit {
     this.disease.prescribedMedicines = this.commonService.getArrayElementsFromString(this.tempPrescribedMedicines);
     this.disease.treatmentList = this.commonService.getArrayElementsFromString(this.tempTreatmentList);
     console.log('disease to update: ', this.disease);
-    this.editPatientService.editPatient(this.patient.name, this.disease).subscribe(result => {
-      console.log('update result: ', result);
-      this.closeButton.nativeElement.click();
-      this.commonService.notifyPatientEdition();
-    });
+
+    if (this.disease.diagnosis) {
+      this.editPatientService.editPatient(this.patient.name, this.disease).subscribe(result => {
+        console.log('update result: ', result);
+        this.closeButton.nativeElement.click();
+        this.commonService.notifyPatientEdition();
+      });
+    } else {
+      alert('Diagnózis mező kitöltése kötelező!!!');
+    }
   }
 
 }
