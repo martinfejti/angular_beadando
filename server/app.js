@@ -69,6 +69,27 @@ app.post('/api/patient/createPatient', (req, res) => {
     })
 })
 
+app.post('/api/patient/editPatient', (req, res) => {
+    console.log('henlo');
+    mongoose.connect(url, function(err) {
+        if (err) throw err;
+        const disease = {
+            diagnosis: req.body.diagnosis,
+            prescribedMedicines: req.body.prescribedMedicines,
+            treatmentList: req.body.treatmentList
+        }
+        console.log('backend: ', disease);
+        console.log('backend name: ', req.body.patientName);
+        Patient.findOneAndUpdate({name: req.body.patientName}, {$push: {caseHistory: disease}}, (err, doc) => {
+            if (err) throw err;
+            return res.status(200).json({
+                status: 'status',
+                data: doc
+            })
+        })
+    })
+})
+
 app.get('/api/user/login', (req, res) => {
     res.send('Henlo World');
 })
