@@ -10,26 +10,26 @@
     <div id="history-div">
         <h5>Kórtörténet:</h5>
         <ng-container *ngFor="let case of patient.caseHistory">
-            <div [ngClass]="'history-detail-div'">
-                <h6>Diagnózis:</h6>
-                <p>{{case.diagnosis}}</p>
-            </div>
-            <div [ngClass]="'history-detail-div'">
-                <h6>Felírt Gyógyszerek:</h6>
-                <ng-container *ngFor="let medicine of case.prescribedMedicines">
-                    <ul>
-                        <li>{{medicine}}</li>
-                    </ul>
-                </ng-container>
-            </div>
-            <div [ngClass]="'history-detail-div'">
-                <h6>Felírt Kezelések:</h6>
-                <ng-container *ngFor="let treatment of case.treatmentList">
-                    <ul>
-                        <li>{{treatment}}</li>
-                    </ul>
-                </ng-container>
-            </div>
+                <div [ngClass]="'history-detail-div'">
+                    <h6>Diagnózis:</h6>
+                    <p>{{case.diagnosis}}</p>
+                </div>
+                <div [ngClass]="'history-detail-div'">
+                    <h6>Felírt Gyógyszerek:</h6>
+                    <ng-container *ngFor="let medicine of case.prescribedMedicines">
+                        <ul>
+                            <li>{{medicine}}</li>
+                        </ul>
+                    </ng-container>
+                </div>
+                <div [ngClass]="'history-detail-div'">
+                    <h6>Felírt Kezelések:</h6>
+                    <ng-container *ngFor="let treatment of case.treatmentList">
+                        <ul>
+                            <li>{{treatment}}</li>
+                        </ul>
+                    </ng-container>
+                </div>
         </ng-container>
         
     </div>
