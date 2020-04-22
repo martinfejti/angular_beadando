@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Patient } from './../models/patient.model';
 import { Disease } from './../models/disease.model';
 import { CommonService } from './../service/common.service';
@@ -12,6 +12,7 @@ import { EditPatientService } from './edit-patient.service';
 })
 export class EditPatientComponent implements OnInit {
 
+  @ViewChild('closeEditModal', {static: false}) closeButton: ElementRef;
   patient: Patient;
   disease: Disease;
   tempPrescribedMedicines: string;
@@ -34,6 +35,7 @@ export class EditPatientComponent implements OnInit {
     console.log('disease to update: ', this.disease);
     this.editPatientService.editPatient(this.patient.name, this.disease).subscribe(result => {
       console.log('update result: ', result);
+      this.closeButton.nativeElement.click();
     });
   }
 
