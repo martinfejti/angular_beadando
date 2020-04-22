@@ -37,7 +37,6 @@ export class EditPatientComponent implements OnInit {
       console.log('update result: ', result);
       this.closeButton.nativeElement.click();
       this.commonService.notifyPatientEdition();
-      this.disease = new Disease();
     });
   }
 
