@@ -11,6 +11,7 @@ export class PatientListElementComponent implements OnInit {
 
   @Input() patient;
   toggleDetails: boolean;
+  patientToBeDeleted: Patient;
 
   constructor(private commonService: CommonService) {
     this.toggleDetails = false;
@@ -25,5 +26,9 @@ export class PatientListElementComponent implements OnInit {
 
   editPatient(patient: Patient) {
     this.commonService.setPatientToEdit(patient);
+  }
+
+  setPatientDelete(patient: Patient) {
+    this.commonService.setPatientToDelete(patient);
   }
 }

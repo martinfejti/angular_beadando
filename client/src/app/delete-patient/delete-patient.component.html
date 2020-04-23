@@ -8,11 +8,11 @@
           </button>
         </div>
         <div class="modal-body">
-          Biztosan törli a páciens adatait a rendszerből ?
+          Biztosan törli <strong>{{patient.name}}</strong> adatait a rendszerből ?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
-          <button type="button" class="btn btn-primary">Törlés</button>
+          <button #closeBtn (click)="unsetDelete()" type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+          <button (click)="deletePatient()" type="button" class="btn btn-primary">Törlés</button>
         </div>
       </div>
     </div>

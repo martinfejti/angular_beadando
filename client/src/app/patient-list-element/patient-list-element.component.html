@@ -3,7 +3,7 @@
     <div class="btn-group" id="icons-container">
         <button type="button" class="btn btn-primary" (click)="showDetails()">Részletek</button>
         <button type="button" class="btn btn-primary" (click)="editPatient(patient)" data-toggle="modal" data-target="#editModal">Új Betegség</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Törlés</button>
+        <button type="button" class="btn btn-primary" (click)="setPatientDelete(patient)" data-toggle="modal" data-target="#deleteModal">Törlés</button>
     </div>
 </div>
 <app-patient-details [patient] = "patient" [toggleDetails]="toggleDetails"></app-patient-details>
