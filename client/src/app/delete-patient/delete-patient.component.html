@@ -11,7 +11,7 @@
           Biztosan törli <strong>{{patient.name}}</strong> adatait a rendszerből ?
         </div>
         <div class="modal-footer">
-          <button #closeBtn (click)="unsetDelete()" type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
+          <button #closeDeleteModal (click)="unsetDelete()" type="button" class="btn btn-secondary" data-dismiss="modal">Mégse</button>
           <button (click)="deletePatient()" type="button" class="btn btn-primary">Törlés</button>
         </div>
       </div>

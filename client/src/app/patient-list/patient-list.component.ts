@@ -24,6 +24,9 @@ export class PatientListComponent implements OnInit {
     this.commonService.patientEditedObeservable.subscribe(result => {
       this.getAllPatients();
     });
+    this.commonService.patientDeletedObservalble.subscribe(result => {
+      this.getAllPatients();
+    });
   }
 
   getAllPatients() {
