@@ -33,10 +33,14 @@ export class AddPatientComponent implements OnInit {
     console.log('created patient: ', this.patient);
 
     if (this.patient.name && this.patient.birthdate && this.patient.tAJNumber) {
-      this.addPatientService.addPatient(this.patient).subscribe(result => {
-        this.closeBtn.nativeElement.click();
-        this.commonService.notifyPatientCreation();
-      });
+      if (this.patient.tAJNumber.toString().length === 9) {
+        this.addPatientService.addPatient(this.patient).subscribe(result => {
+          this.closeBtn.nativeElement.click();
+          this.commonService.notifyPatientCreation();
+        });
+      } else {
+        alert('A TAJ szám 9 számból kell álljon!');
+      }
     } else {
       alert('A név, születési dátum és TAJ szám mezők kitöltése kötelező!');
     }
