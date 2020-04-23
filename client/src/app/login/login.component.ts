@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
       this.loginService.validateLogin(this.user).subscribe(result => {
         console.log('Result: ', result);
         if (result['status'] === 'success') {
+          localStorage.setItem('loggedInUser', this.user.username);
           this.router.navigate(['/home']);
         } else {
           console.log('Wrong username or password');
