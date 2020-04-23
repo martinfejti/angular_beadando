@@ -15,7 +15,9 @@
         </ul>
     </nav>
     <h3>Betegnyilvántartó alkalmazás</h3>
-    <h5 class="text-muted">Bejelentkezve mint: {{loggenInUserName}}</h5>
+    <ng-container *ngIf="loggedInUserName">
+        <h5 class="text-muted">Bejelentkezve mint: {{loggedInUserName}}</h5>
+    </ng-container>
 </header>
 <main role="main">
  
