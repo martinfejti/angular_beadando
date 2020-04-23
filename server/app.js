@@ -11,6 +11,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+mongoose.set('useFindAndModify', false);
+
 
 app.post("/api/user/login", (req, res) => {
     mongoose.connect(url, function(err) {
@@ -91,15 +93,16 @@ app.post('/api/patient/editPatient', (req, res) => {
 })
 
 app.post('/api/patient/deletePatient', (req, res) => {
+    console.log('delete api: ', req.body.tAJNumber);
     mongoose.connect(url, function(err) {
         if (err) throw err;
-        Patient.findOneAndDelete(req.body.tAJNumber), (err, doc) => {
+        Patient.findOneAndDelete({tAJNumber: req.body.tAJNumber}, (err, doc) => {
             if (err) throw err;
             return res.status(200).json({
                 status: 'success',
                 data: doc
             })
-        }
+        })
     })
 })
 
