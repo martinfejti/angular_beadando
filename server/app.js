@@ -90,6 +90,19 @@ app.post('/api/patient/editPatient', (req, res) => {
     })
 })
 
+app.post('/api/patient/deletePatient', (req, res) => {
+    mongoose.connect(url, function(err) {
+        if (err) throw err;
+        Patient.findOneAndDelete(req.body.tAJNumber), (err, doc) => {
+            if (err) throw err;
+            return res.status(200).json({
+                status: 'success',
+                data: doc
+            })
+        }
+    })
+})
+
 app.get('/api/user/login', (req, res) => {
     res.send('Henlo World');
 })
