@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  loggenInUserName: string;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.loggenInUserName = localStorage.getItem('loggedInUser');
   }
 
   logout() {
