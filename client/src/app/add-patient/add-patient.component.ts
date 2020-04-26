@@ -40,6 +40,8 @@ export class AddPatientComponent implements OnInit {
         });
       } else {
         alert('A TAJ szám 9 számból kell álljon!');
+        this.patient = new Patient();
+        this.disease = new Disease();
       }
     } else {
       alert('A név, születési dátum és TAJ szám mezők kitöltése kötelező!');
