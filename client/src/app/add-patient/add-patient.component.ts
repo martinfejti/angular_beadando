@@ -45,6 +45,8 @@ export class AddPatientComponent implements OnInit {
       }
     } else {
       alert('A név, születési dátum és TAJ szám mezők kitöltése kötelező!');
+      this.patient = new Patient();
+      this.disease = new Disease();
     }
   }
 
